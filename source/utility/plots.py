@@ -17,7 +17,7 @@ model = ExponentialSmoothing(
 f_length = len(dates) + 20
 forecast = model.predict(0, f_length)
 
-def plot_model():
+def holtwinters_plot(xs, ys, **kwargs):
     
     xdates = pd.date_range(start_date, periods = f_length + 1, freq = "M")
     plt.style.use("./vincents.mlpstyle")
@@ -50,11 +50,5 @@ def plot_model():
     
     #plt.hlines(ylim[0] + 0.1 * yrange, xmin = xlim[0], xmax = train_date)
     #plt.hlines(ylim[0] + 0.1 * yrange, xmin = train_date, xmax = test_date)
-    
-    
-    
-    plt.savefig("Fish Rev")
-    plt.show()
-    
-       
-plot_model()
+
+    return plt.gcf()

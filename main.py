@@ -1,10 +1,11 @@
 from source.panes.mainmenu import MainMenu
+from source.widgets
 from kivy.app import App
 
 class MainApp(App):
     
     def build(self):
-        return MainMenu()
+        return 
         
 
 if __name__ == "__main__":

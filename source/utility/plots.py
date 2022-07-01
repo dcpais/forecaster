@@ -1,23 +1,15 @@
 import matplotlib.pyplot as plt
-import matplotlib.patches as mpatches
 from statsmodels.tsa.api import ExponentialSmoothing
 
 import numpy as np
 import pandas as pd
 
-data = pd.read_csv("data.csv")
-dates = data["date"]
-rev = data["sales"]
 
-start_date = dates[0]
-model = ExponentialSmoothing(
-    rev, seasonal = "mul",
-    trend = "mul", seasonal_periods = 12
-).fit( optimized = True)
-f_length = len(dates) + 20
-forecast = model.predict(0, f_length)
 
-def holtwinters_plot(xs, ys, **kwargs):
+def hwplot(xs, ys, **kwargs):
+    """
+    Create a Holt winters plot
+    """
     
     xdates = pd.date_range(start_date, periods = f_length + 1, freq = "M")
     plt.style.use("./vincents.mlpstyle")

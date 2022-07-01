@@ -1,11 +1,11 @@
 from source.contexts.mainmenu import MainMenu
-from source.widgets
+from source.contexts.hwcontext import HoltWintersContext
 from kivy.app import App
 
 class MainApp(App):
     
     def build(self):
-        return HoltWintersPane()
+        return HoltWintersContext()
         
 
 if __name__ == "__main__":
